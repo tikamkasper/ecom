@@ -1,1 +1,5 @@
 https://github.com/vivekuw/E-Commerce-Database-management-project/blob/main/E%20commerce%20ER%20Diagram.pdf
+
+https://dev.to/fpaghar/er-diagram-sample-for-ecommerce-project-1o2h
+
+https://medium.com/@Arnav-mah/joi-validation-with-node-js-and-postman-598fb0af8c61
