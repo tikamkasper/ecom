@@ -4,21 +4,14 @@ const bcrypt = require("bcrypt");
 
 const userSchema = new mongoose.Schema(
   {
-    fullName: {
-      type: String,
-      trim: true,
-      required: [true, "Please Enter Your fullName"],
-      index: true,
-    },
     userName: {
       type: String,
       trim: true,
       required: [true, "Please Enter Your userName"],
-      maxLenght: [30, "Name cannot exceed 30 characters"],
-      minLenght: [4, "Name should have more than 4 characters"],
+      maxLenght: [30, "userName cannot exceed 30 characters"],
+      minLenght: [4, "userName should have more than 4 characters"],
       unique: true,
       lowercase: true,
-      index: true,
     },
     email: {
       type: String,
@@ -31,10 +24,7 @@ const userSchema = new mongoose.Schema(
       minLenght: [8, "Password should be greater than 8 characters"],
       // select: false,
     },
-    // avatar: {
-    //   public_id: { type: String, required: true },
-    //   url: { type: String, required: true },
-    // },
+
     role: { type: String, default: "user" },
     refreshToken: {
       type: String,
@@ -59,7 +49,6 @@ userSchema.methods.generateAccessToken = function () {
   return jwt.sign(
     {
       _id: this._id,
-      fullName: this.fullName,
       userName: this.userName,
       email: this.email,
     },
