@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const profileSchema = new mongoose.Schema({
-  user_id: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
@@ -12,6 +12,9 @@ const profileSchema = new mongoose.Schema({
   last_name: {
     type: String,
     trim: true,
+  },
+  gender: {
+    type: String,
   },
   avatar: {
     public_id: { type: String },

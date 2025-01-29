@@ -1,24 +1,51 @@
 const mongoose = require("mongoose");
 
 const addressSchema = new mongoose.Schema({
-  user_id: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
+    required: true,
   },
-  first_name: {
+  full_name: {
     type: String,
     trim: true,
-  },
-  last_name: {
-    type: String,
-    trim: true,
-  },
-  avatar: {
-    public_id: { type: String },
-    url: { type: String },
+    required: true,
   },
   mobile: {
     type: String,
+    required: true,
+  },
+  addresses: [
+    {
+      street_house_no: {
+        type: String,
+        required: true,
+      },
+      locality_area: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
+  address_type: {
+    type: String,
+    default: "home", // work
+  },
+  city_district: {
+    type: String,
+    required: true,
+  },
+  state: {
+    type: String,
+    required: true,
+  },
+  pincode: {
+    type: String,
+    required: true,
+  },
+  country: {
+    type: String,
+    required: true,
   },
 });
 
